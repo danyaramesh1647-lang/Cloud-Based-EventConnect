@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin | Cloud-Based EventConnect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">⚙️ EventConnect Admin</div>
+    <div class="nav-right">
+      <a href="index.html" class="admin-link">🎟️ User view</a>
+      <span id="userName">👤</span>
+      <button class="btn-logout" onclick="logoutUser()">Logout</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="section-head">
+      <h2>🎉 Manage Events</h2>
+      <button onclick="openEventModal()">+ Add Event</button>
+    </div>
+    <div class="grid" id="adminGrid"></div>
+  </main>
+
+  <!-- ADD / EDIT EVENT MODAL -->
+  <div class="modal" id="eventModal">
+    <div class="modal-box">
+      <h2 id="modalTitle">New Event</h2>
+      <input type="text" id="evTitle" placeholder="Event title">
+      <textarea id="evDesc" placeholder="Description"></textarea>
+      <select id="evCategory"></select>
+      <input type="text" id="evVenue" placeholder="Venue">
+      <input type="datetime-local" id="evDate">
+      <input type="number" id="evCapacity" placeholder="Capacity" min="1" value="100">
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('eventModal')">Cancel</button>
+        <button onclick="saveEvent()">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- REGISTERED USERS MODAL -->
+  <div class="modal" id="regModal">
+    <div class="modal-box">
+      <h2 id="regModalTitle">Registered Users</h2>
+      <ul class="reg-list" id="regUsers"></ul>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal('regModal')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

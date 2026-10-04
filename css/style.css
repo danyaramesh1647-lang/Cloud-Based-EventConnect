@@ -1,0 +1,203 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --sun: #ffd23f;
+  --butter: #fff3b0;
+  --cream: #fffaf0;
+  --brown: #5c4033;
+  --heart: #ff8fa3;
+  --blush: #ffd9e0;
+  --leaf: #e3f2c1;
+  --muted: #9a8478;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  color: var(--brown);
+  background-color: var(--cream);
+  background-image: radial-gradient(#f3dd9a 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+  min-height: 100vh;
+}
+
+input, select, textarea {
+  padding: 12px 14px;
+  border: 2px solid var(--brown);
+  border-radius: 14px;
+  font-size: 15px;
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--brown);
+  background: #fff;
+  outline: none;
+  width: 100%;
+}
+input::placeholder, textarea::placeholder { color: #c4ad9f; }
+input:focus, select:focus, textarea:focus { background: var(--butter); box-shadow: 3px 3px 0 var(--sun); }
+textarea { resize: vertical; min-height: 100px; }
+
+button {
+  padding: 11px 18px;
+  border: 2px solid var(--brown);
+  border-radius: 999px;
+  background: var(--sun);
+  color: var(--brown);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--brown);
+  transition: 0.15s;
+}
+button:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--brown); }
+button:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--brown); }
+
+/* ---------- AUTH PAGES ---------- */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--blush);
+  background-image:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.5) 50%, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.5) 50%, transparent 50%);
+  background-size: 44px 44px;
+}
+.auth-card {
+  position: relative;
+  background: var(--cream);
+  border: 3px solid var(--brown);
+  border-radius: 28px;
+  box-shadow: 8px 8px 0 var(--brown);
+  padding: 56px 32px 32px;
+  width: 100%;
+  max-width: 390px;
+  text-align: center;
+}
+.auth-card::before {
+  content: "🎟️";
+  position: absolute;
+  top: -34px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-10deg);
+  font-size: 62px;
+}
+.auth-card h1 { font-family: "Caveat", cursive; font-size: 44px; line-height: 1; }
+.auth-card p { color: var(--muted); font-weight: 600; margin: 6px 0 20px; }
+.auth-card form { display: flex; flex-direction: column; gap: 12px; }
+.auth-card button { margin-top: 6px; padding: 13px; }
+.auth-card .switch { margin: 18px 0 0; font-size: 14px; }
+.auth-card a { color: #d9467a; font-weight: 700; text-decoration: none; }
+.auth-card a:hover { text-decoration: underline wavy; }
+/* ---------- NAVBAR ---------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 28px;
+  background: var(--heart);
+  border-bottom: 3px solid var(--brown);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.logo { font-family: "Caveat", cursive; font-size: 34px; font-weight: 700; }
+.search-box { flex: 1; max-width: 360px; border-radius: 999px; }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+#userName { font-weight: 700; background: var(--cream); border: 2px solid var(--brown); border-radius: 999px; padding: 6px 14px; }
+.admin-link { color: var(--brown); font-weight: 700; background: var(--sun); border: 2px solid var(--brown); border-radius: 999px; padding: 6px 14px; text-decoration: none; }
+.btn-logout { background: var(--cream); padding: 8px 16px; }
+
+/* ---------- DASHBOARD ---------- */
+.container { max-width: 1100px; margin: 0 auto; padding: 28px 20px 80px; }
+.welcome { font-family: "Caveat", cursive; font-size: 46px; margin-bottom: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
+.chip { background: #fff; padding: 7px 16px; font-size: 14px; box-shadow: 2px 2px 0 var(--brown); }
+.chip.active { background: var(--heart); color: #fff; }
+.section-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.section-head h2 { font-family: "Caveat", cursive; font-size: 34px; }
+.empty { color: var(--muted); font-weight: 700; padding: 18px 0; }
+
+/* ---------- EVENT TICKETS ---------- */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 24px; }
+.event-card {
+  position: relative;
+  background: var(--butter);
+  border: 2px solid var(--brown);
+  border-radius: 18px;
+  box-shadow: 5px 5px 0 var(--brown);
+  padding: 20px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: 0.2s;
+}
+.event-card:nth-child(3n+2) { background: var(--blush); }
+.event-card:nth-child(3n+3) { background: var(--leaf); }
+.event-card:hover { transform: translateY(-4px); }
+.tag { align-self: flex-start; background: #fff; border: 1.5px solid var(--brown); font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 999px; }
+.tag::before { content: "🎟️ "; }
+.event-card h3 { font-family: "Caveat", cursive; font-size: 30px; line-height: 1.1; }
+.event-card p { font-size: 14px; font-weight: 600; }
+.meta { font-size: 13px; font-weight: 700; }
+.event-card button { margin-top: 8px; }
+.btn-joined { background: #fff; opacity: 0.8; cursor: default; box-shadow: none; }
+.btn-joined:hover { transform: none; box-shadow: none; }
+
+/* ---------- MY REGISTRATIONS ---------- */
+.reg-section { margin-top: 48px; }
+.reg-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.reg-item {
+  background: #fff;
+  border: 2px solid var(--brown);
+  border-radius: 16px;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 3px 3px 0 var(--sun);
+}
+.reg-item small { display: block; color: var(--muted); font-weight: 700; margin-top: 2px; }
+.btn-delete { background: var(--heart); color: #fff; padding: 6px 14px; font-size: 13px; box-shadow: 2px 2px 0 var(--brown); }
+
+@media (max-width: 700px) {
+  .search-box { display: none; }
+  .welcome { font-size: 36px; }
+}
+/* ---------- ADMIN ---------- */
+.card-actions { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+.card-actions button { margin-top: 0; padding: 6px 14px; font-size: 13px; box-shadow: 2px 2px 0 var(--brown); }
+.btn-small { background: #fff; }
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(92, 64, 51, 0.5);
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 50;
+}
+.modal.show { display: flex; }
+.modal-box {
+  background: var(--butter);
+  border: 3px solid var(--brown);
+  border-radius: 24px;
+  box-shadow: 8px 8px 0 var(--brown);
+  padding: 26px;
+  width: 100%;
+  max-width: 460px;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.modal-box h2 { font-family: "Caveat", cursive; font-size: 36px; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; }
+.btn-cancel { background: #fff; }
